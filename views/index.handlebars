@@ -1,0 +1,29 @@
+<div class="jumbotron">
+  <h1 class="display-4">Bem vindo ao blog</h1>
+  <p class="lead">Blog simples usando Node JS</p>
+  <hr class="my-4">
+  <p>Postagens, Categoria e ate um Login</p>
+  {{#if user}}
+  {{else}}
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="http://localhost:8081/usuarios/registro" role="button">Criar conta</a>
+  </p>
+  {{/if}}
+</div>
+<hr>
+<h2>Postagens recentes:</h2>
+
+{{#each postagens}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h3>{{titulo}}</h3>
+        <p>{{descricao}}</p>
+        <a href="/postagem/{{slug}}"><button class="btn btn-info">Leia mais</button></a>
+        <hr>
+        <small>Categoria: {{categoria.nome}}</small><br>
+        <small>Data de publicação: {{data}}</small>
+    </div>
+</div>
+{{else}}
+    <h5>Nenhuma postagem</h5>
+{{/each}}
